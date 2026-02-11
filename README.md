@@ -1,0 +1,1 @@
+This repo contain all the question i will solve in my tech journey. I will solve questions on the different platform like leetcode, codeforces and many more and try to improve my pratice and logical problem skill.
