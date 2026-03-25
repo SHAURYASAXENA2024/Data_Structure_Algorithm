@@ -38,8 +38,10 @@ class list{
 class solution : public node , public list {
     public:
     void reorderList(list* head){
-        while(head!=NULL){
-            
+        if(head==NULL) return;
+        list* temp=head;
+        int l,r;
+        while(temp!=NULL){
         }
     }
 
