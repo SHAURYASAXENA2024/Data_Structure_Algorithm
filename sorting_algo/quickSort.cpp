@@ -22,31 +22,23 @@ const ll INF = 1e18;
 const int MAXN = 1e5 + 5;
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL);
 class hello {};
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high], i = low - 1;
+    for (int j = low; j < high; j++)
+        if (arr[j] <= pivot) swap(arr[++i], arr[j]);
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+ 
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
 int main()
 {
 FAST 
-int n; cin >> n;
-while(n--){
-    /* brute force */
-    int t; cin >> t;
-    int k; cin >> k;
-    int found=0;
-    int steps=0;
-    vi arr(t);
-    for(int i=0; i<arr.size(); i++ ) cin >> arr[i];
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i]%k==0){
-            found=1;
-        }
-        else if(arr[i]%k==k){
-            arr[i]=arr[i]+1;
-            steps++;
-        }
-        else{
-            return 0;
-        }
-    }
-    cout << steps << endl;
-}
 return 0;
 }

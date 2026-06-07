@@ -22,31 +22,26 @@ const ll INF = 1e18;
 const int MAXN = 1e5 + 5;
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL);
 class hello {};
+void heapify(vector<int>& arr, int n, int i) {
+    int largest = i, l = 2*i+1, r = 2*i+2;
+    if (l < n && arr[l] > arr[largest]) largest = l;
+    if (r < n && arr[r] > arr[largest]) largest = r;
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+ 
+void heapSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int i = n/2 - 1; i >= 0; i--) heapify(arr, n, i);
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
 int main()
 {
 FAST 
-int n; cin >> n;
-while(n--){
-    /* brute force */
-    int t; cin >> t;
-    int k; cin >> k;
-    int found=0;
-    int steps=0;
-    vi arr(t);
-    for(int i=0; i<arr.size(); i++ ) cin >> arr[i];
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i]%k==0){
-            found=1;
-        }
-        else if(arr[i]%k==k){
-            arr[i]=arr[i]+1;
-            steps++;
-        }
-        else{
-            return 0;
-        }
-    }
-    cout << steps << endl;
-}
 return 0;
 }

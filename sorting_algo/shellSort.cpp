@@ -22,31 +22,20 @@ const ll INF = 1e18;
 const int MAXN = 1e5 + 5;
 #define FAST ios_base::sync_with_stdio(false); cin.tie(NULL);
 class hello {};
+void shellSort(vector<int>& arr) {
+    int n = arr.size();
+    for (int gap = n/2; gap > 0; gap /= 2)
+        for (int i = gap; i < n; i++) {
+            int temp = arr[i], j = i;
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            arr[j] = temp;
+        }
+}
 int main()
 {
 FAST 
-int n; cin >> n;
-while(n--){
-    /* brute force */
-    int t; cin >> t;
-    int k; cin >> k;
-    int found=0;
-    int steps=0;
-    vi arr(t);
-    for(int i=0; i<arr.size(); i++ ) cin >> arr[i];
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i]%k==0){
-            found=1;
-        }
-        else if(arr[i]%k==k){
-            arr[i]=arr[i]+1;
-            steps++;
-        }
-        else{
-            return 0;
-        }
-    }
-    cout << steps << endl;
-}
 return 0;
 }

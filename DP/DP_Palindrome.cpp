@@ -25,28 +25,6 @@ class hello {};
 int main()
 {
 FAST 
-int n; cin >> n;
-while(n--){
-    /* brute force */
-    int t; cin >> t;
-    int k; cin >> k;
-    int found=0;
-    int steps=0;
-    vi arr(t);
-    for(int i=0; i<arr.size(); i++ ) cin >> arr[i];
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i]%k==0){
-            found=1;
-        }
-        else if(arr[i]%k==k){
-            arr[i]=arr[i]+1;
-            steps++;
-        }
-        else{
-            return 0;
-        }
-    }
-    cout << steps << endl;
-}
+
 return 0;
 }
